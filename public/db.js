@@ -34,3 +34,42 @@ request.onsuccess = function ( e ) {
 		checkDatabase();
 	}
 };
+
+function makeStore( sName ) {
+	const transaction = db.transaction( [ sName ], 'readwrite' );
+
+	const store = transaction.objectStore( sName );
+
+	return store;
+}
+
+function checkDatabase() {
+	console.log( 'Checking DB' );
+
+	const store = makeStore( storeName );
+
+	const getAll = store.getAll();
+
+	getAll.onsuccess = function () {
+		if( getAll.result.length > 0 ) {
+			fetch( '/api/transaction/bulk', {
+				method: 'POST',
+				body: JSON.stringify( getAll.result ),
+				headers: {
+					Accept: 'application/json, text/plain, */*',
+					'Content-Type': 'application/json',
+				}
+			} )
+				.then( ( response ) => response.json() )
+				.then( ( res ) => {
+					if( res.length !== 0 ) {
+						const store = makeStore( storeName );
+
+						store.clear();
+
+						console.log( 'indexedDB Cleared' );
+					}
+				} );
+		}
+	};
+}
