@@ -31,3 +31,6 @@ SO THAT my account balance is accurate when I am traveling
 - MongoDB
 - Mongoose
 - Node.js
+
+## Contact Me
+Feel free to check out my other work on my GitHub at [DN-Vanguard](https://github.com/DN-Vanguard).
