@@ -1,4 +1,4 @@
-# Progressive-Budget
+# Progressive Budget
 
 ## Description
 Being able to control your finances is always difficult. In this scenario, I travel frequently and dont always have access to internet.
@@ -7,7 +7,7 @@ have to rely on an internet connection to track my finances! Check out the app a
 
 https://budget-tracker-dn.herokuapp.com/
 
-![]()
+![Dashboard View](assets/Dashboard.png)
 
 ## Installation
 1. Download Google Chrome if you haven't already.
@@ -22,3 +22,12 @@ AS AN avid traveller
 I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
 SO THAT my account balance is accurate when I am traveling
 ```
+
+## Technologies Used
+- PWA
+    - Webmanifest
+    - Service-worker
+    - Cache
+- MongoDB
+- Mongoose
+- Node.js
